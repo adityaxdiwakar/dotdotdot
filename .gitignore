@@ -11,3 +11,9 @@
 !dunst*
 !flameshot*
 !neofetch*
+!spicetify*
+!.vim*
+
+spicetify/Extensions/*
+spicetify/Backup/*
+spicetify/Extracted/*
