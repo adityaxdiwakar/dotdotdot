@@ -1,0 +1,113 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+
+env:
+  TERM: alacritty
+
+window:
+  dimensions:
+    columns: 80
+    lines: 24
+
+  padding:
+    x: 10
+    y: 10
+
+  dynamic_padding: true
+
+  decorations: full
+
+  startup_mode: Windowed
+
+  title: Alacritty
+
+  class:
+    instance: Alacritty
+    general: Alacritty
+
+
+  history: 10000
+
+  multiplier: 3
+
+font:
+  normal:
+    family: Ubuntu Mono
+    style: Regular
+  bold:
+    family: Ubuntu Mono
+    style: Bold
+  italic:
+    family: Ubuntu Mono
+    style: Italic  
+  bold_italic:
+    family: Ubuntu Mono
+    style: Bold Italic
+  size: 14
+
+  glyph_offset:
+    x: 0
+    y: 0
+
+colors:
+  primary:
+    background: '#0a111f'
+    foreground: '#eaeaea'
+
+  cursor:
+    text: '#000000'
+    cursor: '#ffffff'
+
+  selection:
+    text: '#eaeaea'
+    background: '#404040'
+
+  normal:
+    black:   '#09101c'
+    red:     '#ff004b'
+    green:   '#21cd5f'
+    yellow:  '#ffca00'
+    blue:    '#1164f1'
+    magenta: '#b741df'
+    cyan:    '#1ebbee'
+    white:   '#fefefe'
+
+  bright:
+    black:   '#1b2940'
+    red:     '#e65062'
+    green:   '#58e189'
+    yellow:  '#fcdd68'
+    blue:    '#3f7ee9'
+    magenta: '#d97ff4'
+    cyan:    '#73cae6'
+    white:   '#dbdbdb'
+
+visual_bell:
+  animation: EaseOutExpo
+  duration: 0
+  color: '#ffffff'
+
+background_opacity: 0.8
+
+selection:
+  save_to_clipboard: true
+
+dynamic_title: true
+
+cursor:
+  style: Block
+
+  unfocused_hollow: true
+
+shell:
+  program: /bin/bash
+working_directory: None
+
+mouse:
+  hide_when_typing: true
+
+key_bindings:
+  - { key: V,        mods: Control|Alt, action: Paste            }
+  - { key: C,        mods: Control|Alt, action: Copy             }
+  - { key: Equals,   mods: Control,       action: ResetFontSize }
+  - { key: Add,      mods: Control|Shift,       action: IncreaseFontSize }
+  - { key: Subtract, mods: Control,       action: DecreaseFontSize }
