@@ -13,6 +13,7 @@
 !neofetch*
 !spicetify*
 !.vim*
+!packages.txt
 
 spicetify/Extensions/*
 spicetify/Backup/*

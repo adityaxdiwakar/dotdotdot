@@ -1,0 +1,2 @@
+
+yay -Sy alacritty google-chrome-dev discord-canary pulseaudio pulseaudio-alsa code feh dmenu dunst ethtool feh flameshot go gotop insomnia nano neofetch nerd-fonts-ubuntu-mono noto-fonts-emoji npm openssl pavucontrol polybar rsync rustup spicetify-cli spotify sshuttle sxhkd ttf-jetbrains-mono ttf-symbola ttf-twemoji ttf-ubuntu-font-family unrar unzip vlc wget whois xclip zip

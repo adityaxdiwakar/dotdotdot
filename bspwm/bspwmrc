@@ -26,11 +26,8 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-feh --bg-fill /home/aditya/Pictures/tiles.jpg
+feh --bg-fill /home/aditya/.config/tiles.jpg
 bash /home/aditya/.config/polybar.sh & disown
 xcompmgr & disown
 dunst & disown
 flameshot & disown
-
-pkill pulseaudio
-pulseaudio & disown
