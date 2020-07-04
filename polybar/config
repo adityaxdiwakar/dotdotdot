@@ -1,0 +1,241 @@
+[colors]
+black = ${xrdb:color0:#000000}
+darkred = ${xrdb:color1:#cc241d}
+darkgreen = ${xrdb:color2:#98971a}
+darkyellow = ${xrdb:color3:#d79921}
+darkblue = ${xrdb:color4:#458588}
+darkmagenta = ${xrdb:color5:#b16286}
+darkcyan = ${xrdb:color6:#689d6a}
+lightgray = ${xrdb:color7:#a89984}
+gray = ${xrdb:color8:#928374}
+red = ${xrdb:color9:#fb4934}
+green = ${xrdb:color10:#228B22}
+yellow = ${xrdb:color11:#db0602}
+blue = ${xrdb:color12:#0080ff}
+magenta = ${xrdb:color13:#d3869b}
+cyan = ${xrdb:color14:#8ec07c}
+white = ${xrdb:color15:#ffffff}
+background = ${xrdb:color256:#000000}
+foreground = ${xrdb:color257:#ffffff}
+
+[bar/default]
+monitor = ${env:MONITOR:}
+enable-ipc = true
+width = 100%
+height = 30
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = {$xrdb:red}
+
+border-size = 0
+border-color = ${colors.white}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = JetBrains Mono:pixelsize=11;1
+
+modules-left = bspwm xkeyboard
+modules-right = memory mutt-wizard wlan eth battery date
+
+tray-position = right
+tray-padding = 4
+
+wm-restack = bspwm
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+
+[module/weather]
+type = custom/script
+exec = weather
+interval = 5000
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:45:...%
+format-foreground = ${colors.white}
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock 
+
+label-indicator-padding = 2
+label-indicator-background = ${colors.red}
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted-underline = ${colors.cyan}
+label-mounted = /: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.gray}
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-foreground = ${colors.black}
+label-focused-background = ${colors.white}
+label-focused-underline= ${colors.yellow}
+label-focused-padding = 1
+
+label-occupied = %index%
+label-occupied-underline = ${colors.white}
+label-occupied-padding = 1
+
+label-urgent = %index%!
+label-urgent-background = ${colors.red}
+label-urgent-padding = 1
+
+label-empty = %index%
+label-empty-foreground = ${colors.lightgray}
+label-empty-padding = 1
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "🌡 "
+format-prefix-foreground = ${colors.gray}
+format-underline = ${colors.red}
+label = %percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "🧠 "
+format-prefix-foreground = ${colors.gray}
+format-underline = ${colors.red}
+label = %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interface = wlp1s0
+interval = 3.0
+
+format-connected = 直 <label-connected>
+format-connected-underline = ${colors.darkmagenta}
+label-connected = %essid%
+
+format-disconnected = <label-disconnected>
+format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected = 睊no wifi
+label-disconnected-foreground = ${colors.gray}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.gray}
+
+[module/eth]
+type = internal/network
+interface = enp4s0
+interval = 3.0
+
+format-connected-underline = ${colors.green}
+;format-connected-underline = ${colors.green}
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.gray}
+label-connected = %local_ip%
+
+;format-disconnected =
+format-disconnected = <label-disconnected>
+format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected =  %ifname%
+label-disconnected-foreground = ${colors.black}
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = "%d %b"
+;time = "%I:%M%p"
+
+# If you're not living in a country where AM and PM is used you can add -alt to the time above this line and comment it using ;, then you can remove the -alt to the time under this line and uncomment it.
+;time-alt = " at %H:%M"
+time = %H:%M:%S
+;time-alt = %H:%M:%S
+
+format-prefix = " "
+format-prefix-foreground = ${colors.white}
+format-underline = ${colors.blue}
+
+label = %date% %time%
+
+[module/volume]
+type = internal/pulseaudio
+
+format-volume = <label-volume> <bar-volume>
+label-volume = 
+label-volume-foreground = ${root.foreground}
+
+format-muted-prefix = " "
+format-muted-foreground = ${colors.gray}
+label-muted = muted
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.blue}
+bar-volume-foreground-1 = ${colors.blue}
+bar-volume-foreground-2 = ${colors.green}
+bar-volume-foreground-3 = ${colors.green}
+bar-volume-foreground-4 = ${colors.green}
+bar-volume-foreground-5 = ${colors.yellow}
+bar-volume-foreground-6 = ${colors.red}
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = =
+bar-volume-fill-font = 2
+bar-volume-empty = =
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.gray}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+;format-charging = Charging... <label-charging>
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.darkyellow}
+
+;format-discharging = <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.gray}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.gray}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.gray}
+animation-charging-framerate = 500
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
