@@ -1,4 +1,4 @@
-# vim configuration for aditya's macbook pro 
+" vim configuration for aditya's macbook pro 
 
 call plug#begin('~/.vim/plugged')
 Plug 'lervag/vimtex'
